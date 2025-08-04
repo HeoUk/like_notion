@@ -8,7 +8,7 @@ import React from 'react';
 // TiptapEditor 컴포넌트를 클라이언트 사이드에서만 로드하도록 설정
 const DynamicTiptapEditor = dynamic(
   () => import('./TiptapEditor'), // TiptapEditor 컴포넌트의 상대 경로를 사용합니다.
-  { ssr: false } // 이제 이 `ssr: false`는 클라이언트 컴포넌트 내부이므로 허용됩니다.
+  {ssr: false} // 이제 이 `ssr: false`는 클라이언트 컴포넌트 내부이므로 허용됩니다.
 );
 
 export default function PostEditor() {
@@ -18,7 +18,7 @@ export default function PostEditor() {
         <h1 className="text-3xl font-bold mb-6 text-center">Notion Like Editor</h1>
         <div className="flex-grow max-w-4xl mx-auto w-full bg-white shadow-lg rounded-lg">
           {/* 동적으로 로드된 에디터 컴포넌트 */}
-          <DynamicTiptapEditor />
+          <DynamicTiptapEditor/>
         </div>
       </div>
     </>
