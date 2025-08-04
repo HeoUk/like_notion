@@ -14,10 +14,10 @@ const DynamicTiptapEditor = dynamic(
 export default function PostEditor() {
   return (
     <>
-      <div className="flex flex-col min-h-screen p-8">
+      <div className="flex flex-col h-screen p-8">
         <h1 className="text-3xl font-bold mb-6 text-center">Notion Like Editor</h1>
-        <div className="flex-grow max-w-4xl mx-auto w-full bg-white shadow-lg rounded-lg">
-          {/* 동적으로 로드된 에디터 컴포넌트 */}
+
+        <div className="flex-grow max-w-4xl mx-auto w-full bg-white shadow-lg rounded-lg flex flex-col overflow-hidden">
           <DynamicTiptapEditor/>
         </div>
       </div>
