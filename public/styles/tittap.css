@@ -2,11 +2,9 @@
 /* Tailwind의 var(--black) 등과 충돌이 예상되면, 실제 색상 값으로 변경하거나 Tailwind의 색상 변수를 사용해야 합니다. */
 /* 일단 TipTap 공식 문서에서 제공된 변수를 그대로 사용합니다. Tailwind 설정에 맞게 변경될 수 있습니다. */
 /* 예시: var(--purple-light) -> theme('colors.purple.100') */
-
 .tiptap {
-    /* :first-child */
     > * + * {
-        margin-top: 0; /* Tailwind의 prose 플러그인과 충돌 가능성 있음 */
+        margin-top: 0;
     }
 
     /* List styles */
@@ -16,9 +14,17 @@
         margin: 1.25rem 1rem 1.25rem 0.4rem;
     }
     ul li p,
-    ol li p { /* 중첩 셀렉터 풀어서 작성 */
+    ol li p {
         margin-top: 0.25em;
         margin-bottom: 0.25em;
+    }
+
+    ul {
+        list-style-type: disc; /* 동그라미 기호 */
+    }
+
+    ol {
+        list-style-type: decimal; /* 숫자 (1, 2, 3...) */
     }
 
     /* Heading styles */
@@ -30,7 +36,6 @@
     h6 {
         line-height: 1.1;
         margin-top: 2.5rem;
-        /* text-wrap: pretty; - 이 CSS 속성은 아직 모든 브라우저에서 지원되지 않을 수 있습니다. */
     }
     h1,
     h2 {
@@ -54,25 +59,22 @@
 
     /* Code and preformatted text styles */
     code {
-        /* var(--purple-light) 등 변수는 정의되어 있어야 합니다. */
-        /* Tailwind에서 색상 변수를 정의하지 않았다면 직접 색상 코드를 넣어야 합니다. */
-        /* 예시: background-color: #f3e8ff; (보라색 계열) */
-        background-color: var(--purple-light, #f3e8ff); /* 폴백 값 추가 */
+        /* Tailwind의 보라색 100번 (#f3e8ff)으로 변경 */
+        background-color: #f3e8ff;
         border-radius: 0.4rem;
-        color: var(--black, #000); /* 폴백 값 추가 */
+        color: #000; /* 검은색 */
         font-size: 0.85rem;
         padding: 0.25em 0.3em;
     }
     pre {
-        /* var(--black) 등 변수는 정의되어 있어야 합니다. */
-        background: var(--black, #1a1a1a); /* 폴백 값 추가 */
+        background: #1a1a1a; /* 어두운 회색 계열 */
         border-radius: 0.5rem;
-        color: var(--white, #fff); /* 폴백 값 추가 */
-        font-family: 'JetBrainsMono', monospace; /* 폰트가 없다면 시스템 기본 폰트 사용 */
+        color: #fff; /* 흰색 */
+        font-family: 'JetBrainsMono', monospace;
         margin: 1.5rem 0;
         padding: 0.75rem 1rem;
     }
-    pre code { /* 중첩 셀렉터 풀어서 작성 */
+    pre code {
         background: none;
         color: inherit;
         font-size: 0.8rem;
@@ -80,27 +82,22 @@
     }
 
     blockquote {
-        /* var(--gray-3) 등 변수는 정의되어 있어야 합니다. */
-        border-left: 3px solid var(--gray-3, #ccc); /* 폴백 값 추가 */
+        border-left: 3px solid #ccc; /* 밝은 회색 */
         margin: 1.5rem 0;
         padding-left: 1rem;
     }
     hr {
         border: none;
-        /* var(--gray-2) 등 변수는 정의되어 있어야 합니다. */
-        border-top: 1px solid var(--gray-2, #eee); /* 폴백 값 추가 */
+        border-top: 1px solid #eee; /* 아주 밝은 회색 */
         margin: 2rem 0;
     }
 }
 
-/* TipTap 에디터 내부의 .is-active 클래스 스타일링 (MenuBar 버튼용) */
-.is-active {
-    background-color: #3b82f6; /* Tailwind blue-500 */
-    color: white;
-}
-
-
-
+/*!* TipTap 에디터 내부의 .is-active 클래스 스타일링 (MenuBar 버튼용) *!*/
+/*.is-active {*/
+/*    background-color: #3b82f6; !* Tailwind blue-500 *!*/
+/*    color: white;*/
+/*}*/
 /*!* -- TipTap MenuBar 버튼 스타일 -- *!*/
 /*.tiptap-menubar-container {*/
 /*    @apply flex flex-col mb-4 p-4 border-b;*/

@@ -4,6 +4,7 @@ import {EditorContent, useEditor} from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import React, {useState} from 'react';
 import {TextStyleKit} from "@tiptap/extension-text-style";
+import TiptapMenu from "@/app/component/post/TiptapMenu";
 
 
 const extensions = [TextStyleKit, StarterKit]
@@ -52,7 +53,8 @@ const TiptapEditor = () => {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex-grow p-4 overflow-y-auto border border-gray-300 rounded-md">
+      <TiptapMenu editor={editor}/>
+      <div className="flex-grow p-3 overflow-y-auto border-0 rounded-md">
         <EditorContent editor={editor}/>
       </div>
     </div>

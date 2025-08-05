@@ -39,60 +39,60 @@ function MenuBar({ editor }: { editor: Editor }) {
   });
 
   // 공통 버튼 스타일을 변수로 정의하여 가독성을 높입니다.
-  const baseButtonClasses = "px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200 ease-in-out";
+  const baseButtonClasses = "px-3 py-1 rounded-md text-md font-medium transition-colors duration-200 ease-in-out";
   const defaultButtonClasses = "bg-gray-200 text-gray-800 hover:bg-gray-300";
   const activeButtonClasses = "bg-blue-500 text-white hover:bg-blue-600";
   const disabledButtonClasses = "opacity-50 cursor-not-allowed";
 
   return (
     // 기존 .tiptap-menubar-container 대신 Tailwind flexbox와 패딩을 적용합니다.
-    <div className="flex flex-col mb-4 p-4 border-b border-gray-200">
+    <div className="flex flex-col mb-4 p-4 border-b border-gray-100">
       {/* 기존 .tiptap-button-group 대신 Tailwind flexbox와 gap을 적용합니다. */}
       <div className="flex flex-wrap gap-2">
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
           disabled={!editorState.canBold}
-          className={`${baseButtonClasses} ${editorState.isBold ? activeButtonClasses : defaultButtonClasses} ${!editorState.canBold ? disabledButtonClasses : ''}`}
+          className={`${baseButtonClasses} ${editorState.isBold ? activeButtonClasses : defaultButtonClasses} ${!editorState.canBold ? disabledButtonClasses : ''} font-mono`}
         >
-          Bold
+          B
         </button>
         <button
           onClick={() => editor.chain().focus().toggleItalic().run()}
           disabled={!editorState.canItalic}
           className={`${baseButtonClasses} ${editorState.isItalic ? activeButtonClasses : defaultButtonClasses} ${!editorState.canItalic ? disabledButtonClasses : ''} italic`}
         >
-          Italic
+          I
         </button>
         <button
           onClick={() => editor.chain().focus().toggleStrike().run()}
           disabled={!editorState.canStrike}
           className={`${baseButtonClasses} ${editorState.isStrike ? activeButtonClasses : defaultButtonClasses} ${!editorState.canStrike ? disabledButtonClasses : ''} line-through`}
         >
-          Strike
+          S
         </button>
-        <button
-          onClick={() => editor.chain().focus().toggleCode().run()}
-          disabled={!editorState.canCode}
-          className={`${baseButtonClasses} ${editorState.isCode ? activeButtonClasses : defaultButtonClasses} ${!editorState.canCode ? disabledButtonClasses : ''} font-mono`}
-        >
-          Code
-        </button>
-        <button onClick={() => editor.chain().focus().unsetAllMarks().run()}
-                className={`${baseButtonClasses} ${defaultButtonClasses}`}
-        >
-          Clear marks
-        </button>
-        <button onClick={() => editor.chain().focus().clearNodes().run()}
-                className={`${baseButtonClasses} ${defaultButtonClasses}`}
-        >
-          Clear nodes
-        </button>
-        <button
-          onClick={() => editor.chain().focus().setParagraph().run()}
-          className={`${baseButtonClasses} ${editorState.isParagraph ? activeButtonClasses : defaultButtonClasses}`}
-        >
-          Paragraph
-        </button>
+        {/*<button*/}
+        {/*  onClick={() => editor.chain().focus().toggleCode().run()}*/}
+        {/*  disabled={!editorState.canCode}*/}
+        {/*  className={`${baseButtonClasses} ${editorState.isCode ? activeButtonClasses : defaultButtonClasses} ${!editorState.canCode ? disabledButtonClasses : ''}`}*/}
+        {/*>*/}
+        {/*  &lt;/&gt;*/}
+        {/*</button>*/}
+        {/*<button onClick={() => editor.chain().focus().unsetAllMarks().run()}*/}
+        {/*        className={`${baseButtonClasses} ${defaultButtonClasses}`}*/}
+        {/*>*/}
+        {/*  Clear marks*/}
+        {/*</button>*/}
+        {/*<button onClick={() => editor.chain().focus().clearNodes().run()}*/}
+        {/*        className={`${baseButtonClasses} ${defaultButtonClasses}`}*/}
+        {/*>*/}
+        {/*  Clear nodes*/}
+        {/*</button>*/}
+        {/*<button*/}
+        {/*  onClick={() => editor.chain().focus().setParagraph().run()}*/}
+        {/*  className={`${baseButtonClasses} ${editorState.isParagraph ? activeButtonClasses : defaultButtonClasses}`}*/}
+        {/*>*/}
+        {/*  Paragraph*/}
+        {/*</button>*/}
         <button
           onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
           className={`${baseButtonClasses} ${editorState.isHeading1 ? activeButtonClasses : defaultButtonClasses}`}
@@ -111,67 +111,67 @@ function MenuBar({ editor }: { editor: Editor }) {
         >
           H3
         </button>
-        <button
-          onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-          className={`${baseButtonClasses} ${editorState.isHeading4 ? activeButtonClasses : defaultButtonClasses}`}
-        >
-          H4
-        </button>
-        <button
-          onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-          className={`${baseButtonClasses} ${editorState.isHeading5 ? activeButtonClasses : defaultButtonClasses}`}
-        >
-          H5
-        </button>
-        <button
-          onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-          className={`${baseButtonClasses} ${editorState.isHeading6 ? activeButtonClasses : defaultButtonClasses}`}
-        >
-          H6
-        </button>
+        {/*<button*/}
+        {/*  onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}*/}
+        {/*  className={`${baseButtonClasses} ${editorState.isHeading4 ? activeButtonClasses : defaultButtonClasses}`}*/}
+        {/*>*/}
+        {/*  H4*/}
+        {/*</button>*/}
+        {/*<button*/}
+        {/*  onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}*/}
+        {/*  className={`${baseButtonClasses} ${editorState.isHeading5 ? activeButtonClasses : defaultButtonClasses}`}*/}
+        {/*>*/}
+        {/*  H5*/}
+        {/*</button>*/}
+        {/*<button*/}
+        {/*  onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}*/}
+        {/*  className={`${baseButtonClasses} ${editorState.isHeading6 ? activeButtonClasses : defaultButtonClasses}`}*/}
+        {/*>*/}
+        {/*  H6*/}
+        {/*</button>*/}
         <button
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={`${baseButtonClasses} ${editorState.isBulletList ? activeButtonClasses : defaultButtonClasses}`}
         >
-          Bullet list
+          •
         </button>
         <button
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={`${baseButtonClasses} ${editorState.isOrderedList ? activeButtonClasses : defaultButtonClasses}`}
         >
-          Ordered list
+          1.
         </button>
         <button
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
           className={`${baseButtonClasses} ${editorState.isCodeBlock ? activeButtonClasses : defaultButtonClasses}`}
         >
-          Code block
+          &lt;/&gt;
         </button>
         <button
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
           className={`${baseButtonClasses} ${editorState.isBlockquote ? activeButtonClasses : defaultButtonClasses}`}
         >
-          Blockquote
+          |
         </button>
         <button onClick={() => editor.chain().focus().setHorizontalRule().run()}
                 className={`${baseButtonClasses} ${defaultButtonClasses}`}
         >
-          Horizontal rule
+          ---
         </button>
-        <button onClick={() => editor.chain().focus().setHardBreak().run()}
-                className={`${baseButtonClasses} ${defaultButtonClasses}`}
-        >
-          Hard break
-        </button>
+        {/*<button onClick={() => editor.chain().focus().setHardBreak().run()}*/}
+        {/*        className={`${baseButtonClasses} ${defaultButtonClasses}`}*/}
+        {/*>*/}
+        {/*  Hard break*/}
+        {/*</button>*/}
         <button onClick={() => editor.chain().focus().undo().run()} disabled={!editorState.canUndo}
                 className={`${baseButtonClasses} ${defaultButtonClasses} ${!editorState.canUndo ? disabledButtonClasses : ''}`}
         >
-          Undo
+          ⬅
         </button>
         <button onClick={() => editor.chain().focus().redo().run()} disabled={!editorState.canRedo}
                 className={`${baseButtonClasses} ${defaultButtonClasses} ${!editorState.canRedo ? disabledButtonClasses : ''}`}
         >
-          Redo
+          ➡
         </button>
       </div>
     </div>
